@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Khushboo Gupta | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f2e9;--ink:#11100f;--pink:#ee9fc3;--pink2:#f1a4c6;--line:#c9c4ba;--soft:#ebe7dc}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
+a{color:inherit}
+.page{width:100%;margin:0;background:var(--paper);overflow:hidden}
+header{height:78px;border-bottom:1px solid #d8d3c9;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(30px,5vw,84px);background:var(--paper)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:32px;line-height:1;letter-spacing:-1px}.logo em{color:#b96d91;font-weight:500}.nav{display:flex;gap:34px;font-size:14px}.nav a{text-decoration:none}.nav a:hover{text-decoration:underline}
+.hero{min-height:calc(100svh - 78px);display:grid;grid-template-columns:43% 57%;gap:6%;padding:clamp(50px,8vh,95px) clamp(30px,8vw,125px);align-items:center}
+.portrait{height:min(420px,44vw);border:1px solid #777;position:relative;overflow:hidden;background:#ddd}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 42%;display:block}
+.portrait-label{position:absolute;bottom:16px;left:16px;font-size:11px;letter-spacing:2px;text-transform:uppercase;z-index:2}
+.hero-copy{position:relative}.sticker{font-family:'Cormorant Garamond';font-style:italic;font-size:19px;background:var(--pink);border-radius:50%;padding:4px 16px;display:inline-block;transform:rotate(-5deg);position:absolute;left:-10px;top:-18px}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;margin:0}.hero h1{font-size:clamp(58px,6vw,92px);line-height:.82;letter-spacing:-4px;max-width:650px}.hero h1 em{color:#a75f82}.hero p{font-size:17px;line-height:1.7;max-width:560px;margin:36px 0 28px}.button{display:inline-flex;border:1px solid #9e6980;border-radius:24px;background:var(--pink);padding:13px 28px;font-size:13px;text-decoration:none;color:inherit;transition:.2s}.button:hover{transform:translateY(-2px);background:#f4b7d3}
+.ticker{height:34px;background:var(--pink);border-top:1px solid #cf7fa7;border-bottom:1px solid #cf7fa7;display:flex;align-items:center;overflow:hidden;white-space:nowrap}.ticker span{flex:none;font-size:13px;letter-spacing:.4px;animation:scroll 44s linear infinite}.ticker i{font-style:normal;margin:0 10px}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+
+/* ABOUT ME - three-column editorial composition */
+.about{min-height:100svh;padding:clamp(46px,7vh,80px) clamp(28px,7.5vw,120px);background:var(--paper);display:flex;align-items:center;overflow:hidden}
+.about-grid{width:100%;display:grid;grid-template-columns:30% 23% 1fr;gap:clamp(32px,4vw,60px);align-items:center}
+.about-intro{position:relative;display:flex;flex-direction:column}
+.about-eyebrow{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:4px;font-weight:600;color:#5c2f47;margin:0 0 24px}
+.about-eyebrow:after{content:"";flex:1;max-width:64px;height:1px;background:#5c2f47;opacity:.45}
+.about-heading{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(42px,4.4vw,60px);line-height:.94;letter-spacing:-2px;margin:0 0 22px;color:#140f13}
+.about-heading em{font-style:italic;color:#c26a95}
+.about-lead{font-size:14.5px;line-height:1.7;color:#3a3733;max-width:340px;margin:0 0 28px}
+.about-btn{align-self:flex-start}
+.about-note{margin-top:38px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;line-height:1.5;color:#a85f82;opacity:.85;transform:rotate(-3deg)}
+.about-note .pj-heart{margin-left:4px}
+.about-portrait{position:relative;display:flex;align-items:center;justify-content:center;min-height:340px}
+.about-paper{position:absolute;width:82%;aspect-ratio:3/4;background:var(--pink2);opacity:.55;transform:rotate(4deg);z-index:0}
+.about-polaroid{position:relative;width:100%;max-width:280px;background:#fff;padding:14px 14px 42px;box-shadow:0 20px 40px rgba(30,20,15,.16);transform:rotate(-3deg);z-index:1}
+.about-tape{position:absolute;left:50%;top:-14px;width:68px;height:26px;background:rgba(233,163,190,.65);border:1px solid rgba(200,120,150,.3);transform:translateX(-50%) rotate(-3deg);z-index:2}
+.about-photo{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#ddd}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-caption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#3c2732}
+.about-sticky{position:absolute;right:-34px;top:42%;width:118px;background:#f6c9dc;padding:14px 13px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;line-height:1.35;color:#3c2732;box-shadow:0 10px 20px rgba(0,0,0,.09);transform:rotate(6deg);z-index:2}
+.about-right{position:relative;padding-left:clamp(28px,3vw,44px);border-left:1px solid #d8d3c9}
+.about-right h3{font-size:clamp(28px,2.4vw,36px);line-height:1;margin:0 0 16px;color:#140f13}
+.about-exp p{font-size:14px;line-height:1.7;color:#3a3733;margin:0 0 14px}
+.about-exp p:last-child{margin-bottom:0}
+.about-link{display:inline-block;font-size:12.5px;font-weight:600;color:#a85f82;text-decoration:none;border-bottom:1px solid rgba(168,95,130,.4);padding-bottom:1px}
+.about-link:hover{color:#7a4a5c;border-color:#7a4a5c}
+.contact-linkedin{background:transparent;margin-left:12px}
+.contact-linkedin:hover{background:rgba(0,0,0,.05)}
+.about-divider{height:1px;background:#d8d3c9;margin:26px 0}
+.skill-pills{display:flex;flex-wrap:wrap;gap:10px}
+.skill-pills span{background:#f6d9e4;color:#5c2f47;font-size:12.5px;padding:8px 16px;border-radius:20px;white-space:nowrap}
+
+.extra h2{font-size:clamp(62px,5.5vw,88px);letter-spacing:-3px;line-height:.85}
+/* PROJECTS - editorial case-study spreads */
+.proj-page{min-height:100svh;position:relative;padding:clamp(50px,7vh,80px) clamp(28px,7.5vw,120px) 44px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column}
+.proj-eyebrow{font-size:12px;letter-spacing:4px;color:#8a8579;margin-bottom:20px}
+.proj-grid{display:grid;grid-template-columns:38% 1fr;gap:26px;align-items:center;flex:1 0 auto}
+.proj-visual{position:relative}
+.proj-cat{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#c26a95;margin:10px 0 20px}
+.proj-company .proj-desc{max-width:480px}
+.proj-company .button{margin-bottom:22px}
+.proj-intro{padding-top:6px;position:relative}
+.proj-title{font-size:clamp(70px,7vw,108px);line-height:.82;letter-spacing:-4px;position:relative;display:inline-block;margin:0}
+.proj-desc{font-size:17px;line-height:1.7;max-width:380px;margin:0 0 22px;color:#312e2b}
+/* PROJECTS HERO - pink editorial spread with floating case-study cards */
+.projects-hero{background:var(--pink2);padding:clamp(50px,7vh,76px) clamp(28px,7.5vw,120px);position:relative;overflow:hidden}
+.pj-grid{display:grid;grid-template-columns:37% 1fr;gap:clamp(36px,5vw,64px);align-items:stretch;position:relative}
+.pj-intro{position:relative;display:flex;flex-direction:column;padding:4px 0}
+.pj-eyebrow{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:4px;font-weight:600;color:#5c2f47;margin:0 0 22px}
+.pj-eyebrow:after{content:"";flex:1;max-width:64px;height:1px;background:#5c2f47;opacity:.45}
+.pj-heading{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(62px,6.8vw,104px);line-height:.85;letter-spacing:-3px;color:#1c1116;margin:0 0 26px;position:relative}
+.pj-heading em{font-style:italic;color:#fdf3f7;text-shadow:0 4px 22px rgba(60,10,35,.28)}
+.pj-heading-mark{position:relative;display:inline-block;width:26px;height:26px;vertical-align:top;top:8px;margin-left:8px;opacity:.8}
+.pj-heading-mark:before,.pj-heading-mark:after{content:"";position:absolute;width:3px;border-radius:2px;background:#7a4460}
+.pj-heading-mark:before{left:2px;top:0;height:20px;transform:rotate(24deg)}
+.pj-heading-mark:after{left:14px;top:4px;height:13px;transform:rotate(-12deg)}
+.pj-lead{font-size:16.5px;line-height:1.75;color:#40222f;max-width:400px;margin:0 0 34px}
+.pj-btn{background:transparent;border:1px solid #4a2634;color:#2a1620;margin:0 0 52px}
+.pj-btn:hover{background:rgba(255,255,255,.35);transform:translateY(-2px)}
+.pj-note{position:absolute;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;line-height:1.3;color:#5c2f47}
+.pj-note-bottom{left:2px;bottom:0;text-align:left;transform:rotate(-4deg);opacity:.9}
+.pj-note-bottom .pj-note-arrow{font-size:19px;margin-left:4px;display:inline-block;transform:rotate(-8deg)}
+.pj-note-bottom .pj-heart{font-size:16px;margin-left:6px}
+.pj-note-top{top:-4px;right:2%;text-align:right;transform:rotate(4deg)}
+.pj-note-top .pj-heart{margin-left:6px}
+.pj-cards{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.2vw,28px);align-items:stretch}
+.pj-card{background:#fbf1ec;border:1px solid rgba(255,255,255,.5);border-radius:18px;padding:clamp(20px,1.8vw,26px) clamp(20px,1.8vw,26px) 20px;box-shadow:0 18px 38px rgba(70,20,45,.14);display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.pj-card:hover{transform:translateY(-6px);box-shadow:0 26px 48px rgba(70,20,45,.2)}
+.pj-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.pj-num{display:inline-flex;flex:none;align-items:center;justify-content:center;width:36px;height:24px;border-radius:50%;background:#f3c9dc;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#7a4a5c}
+.pj-card h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(20px,1.6vw,23px);line-height:1.16;margin:0 0 8px;color:#140f13}
+.pj-card-desc{font-size:13px;line-height:1.5;color:#57534c;margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid rgba(122,74,92,.16)}
+.pj-card-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pj-card-cols>div+div{border-left:1px solid rgba(122,74,92,.16);padding-left:20px}
+.pj-card h4{font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;margin:0 0 8px;color:#9c5a72;font-weight:700}
+.pj-card ul{list-style:none;margin:0;padding:0}
+.pj-card li{font-size:13px;line-height:1.4;padding-left:14px;position:relative;color:#312e2b;margin-bottom:3px}
+.pj-card li:last-child{margin-bottom:0}
+.pj-card li:before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:var(--pink)}
+.pj-arrow-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;border:1px solid #9e6980;border-radius:50%;text-decoration:none;color:inherit;font-size:13px;transition:.2s}
+.pj-arrow-btn:hover{background:#f3c9dc;transform:translateY(-2px)}
+@media(min-width:801px) and (max-width:1100px){.pj-grid{grid-template-columns:34% 1fr;gap:28px}.pj-heading{font-size:clamp(46px,6vw,64px)}.pj-lead{font-size:15px}.pj-note-top{display:none}.pj-note-bottom{position:static;display:inline-block;margin-top:18px;text-align:left}.pj-cards{gap:16px}.pj-card{padding:24px 22px 22px}.pj-card h3{font-size:21px}.pj-card-desc{font-size:13px}.pj-card li{font-size:12.5px}.about-grid{grid-template-columns:32% 22% 1fr;gap:30px}.about-heading{font-size:clamp(36px,5vw,48px)}.about-lead{font-size:13.5px}.about-note{display:none}.about-sticky{right:-24px;width:100px;font-size:12px}}
+.proj-arrow{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #9e6980;border-radius:50%;text-decoration:none;color:inherit;font-size:15px;margin-top:4px}
+.laptop{position:relative;width:min(680px,97%);margin:0 auto;display:block;text-decoration:none;color:inherit}
+.laptop-lid{background:#1c1a17;border-radius:16px 16px 4px 4px;padding:14px 14px 0;box-shadow:0 34px 64px rgba(20,15,10,.24);position:relative}
+.laptop-webcam{position:absolute;left:50%;top:6px;width:6px;height:6px;border-radius:50%;background:#050403;transform:translateX(-50%)}
+.laptop-screen{background:#f5f3ee;border-radius:5px;overflow:hidden;min-height:400px;display:flex}
+.laptop-deck{background:linear-gradient(180deg,#1c1a17,#0d0c0a);height:30px;border-radius:0 0 16px 16px;position:relative;box-shadow:0 18px 30px rgba(20,15,10,.16)}
+.laptop-keyboard{position:absolute;left:9%;right:9%;top:6px;height:9px;background:repeating-linear-gradient(90deg,#5a5854 0 6px,transparent 6px 9px);opacity:.55;border-radius:2px}
+.laptop-trackpad{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);width:110px;height:13px;background:#050403;border-radius:6px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.dash-sidebar{width:118px;flex:none;background:#fff;border-right:1px solid #ece8e0;padding:16px 10px;display:flex;flex-direction:column;gap:10px}
+.dash-brand{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:#1b1a18;margin-bottom:4px}
+.dash-nav{display:flex;flex-direction:column;gap:7px}
+.dash-nav span{height:16px;border-radius:5px;background:#f2efe9}
+.dash-nav span.active{background:#f0dceb}
+.dash-cta{margin-top:auto;height:44px;border-radius:8px;background:linear-gradient(135deg,#efd9ec,#f6c9dc)}
+.dash-main{flex:1;min-width:0;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.dash-topbar{display:flex;align-items:center;gap:8px}
+.dash-title{width:70px;height:12px;border-radius:4px;background:#e7e2d8}
+.dash-search{flex:1;height:20px;border-radius:10px;background:#f2efe9}
+.dash-bell,.dash-avatar{width:18px;height:18px;border-radius:50%;background:#f2efe9;flex:none}
+.dash-avatar{background:var(--pink)}
+.dash-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.dash-stats span{height:46px;border-radius:8px;background:#fff;border:1px solid #ece8e0}
+.dash-panels{display:grid;grid-template-columns:1.5fr 1fr;gap:8px}
+.dash-chart{background:#fff;border:1px solid #ece8e0;border-radius:8px;display:flex;align-items:flex-end;gap:5px;padding:10px;height:76px}
+.dash-chart i{flex:1;background:linear-gradient(180deg,#f3c6d6,#e8a9c4);border-radius:2px 2px 0 0}
+.dash-chart i:nth-child(1){height:35%}.dash-chart i:nth-child(2){height:55%}.dash-chart i:nth-child(3){height:45%}.dash-chart i:nth-child(4){height:70%}.dash-chart i:nth-child(5){height:60%}.dash-chart i:nth-child(6){height:85%}
+.dash-donut{background:#fff;border:1px solid #ece8e0;border-radius:8px;display:grid;place-items:center;height:76px}
+.dash-donut:before{content:"";width:48px;height:48px;border-radius:50%;background:conic-gradient(#e8a9c4 0 35%,#c9b8e0 35% 60%,#a9c9d8 60% 80%,#e0d4a9 80% 100%)}
+.dash-rows{display:flex;flex-direction:column;gap:8px}
+.dash-rows span{height:14px;border-radius:5px;background:#fff;border:1px solid #ece8e0}
+.note-click{position:absolute;right:4%;top:-42px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#c26a95;z-index:3}
+.note-click-arrow{position:absolute;right:-6px;top:100%;margin-top:4px;width:26px;height:26px;border:1px solid #d98cae;border-top-color:transparent;border-left-color:transparent;border-radius:50%;transform:rotate(50deg);opacity:.75}
+.proj-info-row{display:grid;grid-template-columns:.75fr .75fr 1.15fr 1.15fr 1.15fr;gap:0;margin-top:48px;padding-top:34px;border-top:1px solid #d8d3c6}
+.info-col{padding:0 26px}
+.info-col:first-child{padding-left:0}
+.info-col:not(:first-child){border-left:1px solid #d8d3c6}
+.info-icon{display:inline-block;width:42px;height:42px;border-radius:50%;background:#f6d9e4;position:relative;margin-bottom:16px}
+.info-col.meta h5{font-size:12px;letter-spacing:1px;text-transform:uppercase;margin:0 0 8px;color:#6b665c;font-weight:600}
+.info-col.meta p{font-size:16px;font-weight:500;color:#1b1a18;margin:0}
+.info-col.detail h4{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:22px;margin:0 0 10px}
+.info-col.detail p{font-size:15px;line-height:1.6;color:#312e2b;margin:0}
+.info-icon.role:before{content:"";position:absolute;left:50%;top:11px;width:10px;height:10px;border-radius:50%;background:#a85f82;transform:translateX(-50%)}
+.info-icon.role:after{content:"";position:absolute;left:50%;bottom:8px;width:22px;height:11px;border-radius:11px 11px 0 0;background:#a85f82;transform:translateX(-50%)}
+.info-icon.timeline:before{content:"";position:absolute;left:50%;top:13px;width:20px;height:16px;border:2px solid #a85f82;border-radius:2px;transform:translateX(-50%)}
+.info-icon.timeline:after{content:"";position:absolute;left:50%;top:10px;width:20px;height:2px;background:#a85f82;transform:translateX(-50%)}
+.info-icon.problem:before{content:"";position:absolute;left:50%;top:9px;width:14px;height:14px;border-radius:50%;border:2px solid #a85f82;transform:translateX(-50%)}
+.info-icon.problem:after{content:"";position:absolute;left:50%;bottom:10px;width:8px;height:3px;background:#a85f82;border-radius:1px;transform:translateX(-50%)}
+.info-icon.approach:before{content:"";position:absolute;left:50%;top:50%;width:18px;height:18px;border:2px solid #a85f82;border-radius:50%;transform:translate(-50%,-50%)}
+.info-icon.approach:after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;background:#a85f82;border-radius:50%;transform:translate(-50%,-50%)}
+.info-icon.outcome{display:flex;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:11px}
+.info-icon.outcome i{width:4px;background:#a85f82;border-radius:1px;display:block}
+.info-icon.outcome i:nth-child(1){height:8px}.info-icon.outcome i:nth-child(2){height:14px}.info-icon.outcome i:nth-child(3){height:19px}
+
+/* ACHIEVEMENTS & CERTIFICATIONS - two-phone editorial composition */
+.achieve{min-height:100svh;padding:clamp(50px,7vh,80px) clamp(28px,7.5vw,120px);background:var(--paper);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.achieve-grid{display:grid;grid-template-columns:47% 1fr;gap:clamp(40px,6vw,80px);align-items:center}
+.achieve-visual{position:relative;min-height:560px}
+.ach-phone-a,.ach-phone-b{position:absolute;display:block;background:#12100f;border-radius:32px;padding:10px;box-shadow:0 26px 42px rgba(20,15,10,.22);text-decoration:none;color:inherit;cursor:pointer}
+.ach-phone-a{width:250px;height:508px;left:13%;top:82px;transform:rotate(-6deg);z-index:3;box-shadow:0 36px 56px rgba(20,15,10,.3)}
+.ach-phone-b{width:214px;height:436px;left:calc(13% + 168px);top:0;transform:rotate(7deg);z-index:1}
+.ach-screen{width:100%;height:100%;background:#fff;border-radius:24px;overflow:hidden;position:relative;padding:14px 14px 0;display:flex;flex-direction:column;font-family:Montserrat,Arial,sans-serif;color:#1b1a18}
+.ach-notch{position:absolute;left:50%;top:0;width:38%;height:20px;background:#12100f;border-radius:0 0 14px 14px;transform:translateX(-50%);z-index:2}
+.ach-clock{font-size:11px;font-weight:600;margin-bottom:10px}
+.ig-handle{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;margin-bottom:14px}
+.ig-handle i{font-size:10px;opacity:.6;font-style:normal}
+.ig-handle .ig-heart{margin-left:auto;color:#e0507f}
+.ig-profile-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.ig-avatar{width:52px;height:52px;flex:none;border-radius:50%;background:linear-gradient(150deg,#e7b7c9,#c9b4dc)}
+.ig-stat{text-align:center;flex:1}
+.ig-stat b{display:block;font-size:14px;line-height:1.1}
+.ig-stat small{font-size:10.5px;color:#5c5850}
+.ig-bio{font-size:11.5px;line-height:1.5;color:#3a3733;margin-bottom:12px}
+.ig-bio b{display:block;font-size:12px}
+.ig-highlights{display:flex;gap:14px;margin-bottom:12px}
+.ig-hl{text-align:center}
+.ig-hl span{display:block;width:34px;height:34px;border-radius:50%;background:#f2efe9;border:1px solid #e4dfd6;margin:0 auto 4px}
+.ig-hl small{font-size:9px;color:#6b665c}
+.ig-tabs{display:flex;gap:20px;border-top:1px solid #ece8e0;padding-top:8px;margin-bottom:2px}
+.ig-tabs span{width:18px;height:3px;border-radius:2px;background:#e4dfd6}
+.ig-tabs span.active{background:#1b1a18}
+.ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;flex:1;margin:0 -14px}
+.ig-grid i{background:linear-gradient(160deg,#cdd7ea,#e9c9d8 55%,#f0d9c2)}
+.ig-grid i:nth-child(2){background:linear-gradient(160deg,#c9c2b4,#e3d8c8)}
+.ig-grid i:nth-child(3){background:linear-gradient(160deg,#d8cfe6,#f0d3c0)}
+.ig-grid i:nth-child(5){background:linear-gradient(160deg,#b9c4d6,#dcd3c4)}
+.ig-nav{display:flex;justify-content:space-between;padding:10px 4px 12px;margin:0 -14px 0}
+.ig-nav span{width:16px;height:16px;border-radius:3px;background:#dcd7cc}
+.hs-badge{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle,#ff7a59 55%,#ff9c78 100%);margin:6px auto 12px}
+.hs-brand{text-align:center;font-size:13px;font-weight:700;margin-bottom:22px}
+.hs-brand b{color:#ff7a59}
+.hs-title{text-align:center;font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.25;margin-bottom:18px}
+.hs-name{text-align:center;font-size:12.5px;font-weight:600;margin-bottom:16px}
+.hs-lines{display:flex;flex-direction:column;gap:8px;padding:0 10px;margin-bottom:auto}
+.hs-lines span{height:6px;border-radius:3px;background:#ece8e0}
+.hs-lines span:nth-child(2){width:70%}
+.hs-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;text-align:center;color:#3a3733;margin-top:20px}
+.hs-sign-caption{text-align:center;font-size:9.5px;letter-spacing:.5px;color:#8a8579;text-transform:uppercase;margin-bottom:16px}
+.ach-card{position:absolute;display:block;background:#f9d5e6;padding:18px 20px;box-shadow:0 10px 20px rgba(0,0,0,.09);width:180px;z-index:6;text-decoration:none;color:inherit;cursor:pointer}
+.ach-card h4{font-size:16.5px;font-weight:600;margin:0 0 4px;line-height:1.25}
+.ach-card p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;line-height:1.35;margin:0;color:#3c2732}
+.ach-card-1{left:-88px;top:150px;transform:rotate(-4deg)}
+.ach-card-2{left:calc(13% + 340px);width:165px;top:14px;transform:rotate(3deg)}
+.ach-card-3{right:-52px;top:302px;width:172px;transform:rotate(-3deg)}
+.achieve-eyebrow{font-size:13px;font-weight:700;letter-spacing:2.5px;color:#c26a95;margin:0 0 16px;text-transform:uppercase}
+.achieve-content h2{font-size:clamp(42px,4vw,58px);line-height:1.06;letter-spacing:-1px;margin:0 0 22px}
+.achieve-lead{font-size:16.5px;line-height:1.7;color:#3a3733;max-width:560px;margin:0 0 36px}
+.achieve-list{margin-bottom:34px}
+.achieve-item{display:flex;align-items:flex-start;gap:18px;margin-bottom:26px}
+.achieve-item:last-child{margin-bottom:0}
+.achieve-icon{display:inline-block;flex:none;width:44px;height:44px;border-radius:50%;background:#f6d9e4;position:relative}
+.icon-brand:before{content:"";position:absolute;left:11px;top:13px;width:15px;height:15px;border-radius:50%;border:2px solid #a85f82}
+.icon-brand:after{content:"";position:absolute;right:9px;top:16px;width:12px;height:12px;border-radius:50%;border:2px solid #a85f82;background:#f6d9e4}
+.icon-growth{display:flex;align-items:flex-end;justify-content:center;gap:3px;padding-bottom:12px}
+.icon-growth i{width:4px;background:#a85f82;border-radius:1px;display:block}
+.icon-growth i:nth-child(1){height:9px}.icon-growth i:nth-child(2){height:15px}.icon-growth i:nth-child(3){height:20px}
+.icon-cert:before{content:"";position:absolute;left:50%;top:9px;width:20px;height:20px;border-radius:50%;border:2px solid #a85f82;transform:translateX(-50%)}
+.icon-cert:after{content:"";position:absolute;left:50%;bottom:3px;width:13px;height:9px;background:#a85f82;clip-path:polygon(0 0,100% 0,80% 100%,50% 65%,20% 100%);transform:translateX(-50%)}
+.achieve-item h3{font-size:19px;font-weight:600;margin:0 0 6px;color:#1b1a18}
+.achieve-item p{font-size:15px;line-height:1.6;color:#4a4742;margin:0;max-width:560px}
+.achieve-item-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:6px}
+.achieve-date{font-size:13px;color:#8a8579;white-space:nowrap}
+.achieve-item ul{list-style:none;margin:8px 0 0;padding:0}
+.achieve-item li{font-size:15px;line-height:1.6;padding-left:16px;position:relative;color:#312e2b;margin-bottom:4px}
+.achieve-item li:before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--pink)}
+
+/* LEARNING & GROWTH - plain-text milestones list */
+.learning{padding:clamp(50px,7vh,80px) clamp(28px,7.5vw,120px);background:var(--paper)}
+.learning-head{margin-bottom:40px}
+.learning-eyebrow{font-size:12px;letter-spacing:4px;font-weight:600;color:#5c2f47;margin:0 0 14px}
+.learning-head h2{font-size:clamp(38px,3.8vw,52px);line-height:.95;letter-spacing:-2px;margin:0;color:#140f13}
+.learning-list{border-top:1px solid #c6c2ba}
+.learning-item{display:flex;gap:22px;padding:28px 0;border-bottom:1px solid #c6c2ba}
+.learning-num{flex:none;width:42px;height:42px;border-radius:50%;background:#f3c9dc;display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#7a4a5c}
+.learning-item-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 20px;margin-bottom:8px}
+.learning-item-head h3{font-size:20px;line-height:1.25;margin:0;font-weight:500;color:#140f13}
+.learning-date{font-size:12px;letter-spacing:.4px;color:#8a8579;white-space:nowrap}
+.learning-item p{font-size:14px;line-height:1.65;color:#4a4742;margin:0;max-width:640px}
+.learning-video-placeholder{margin-top:12px;display:inline-block;padding:9px 16px;border:1px dashed #c9a3b5;border-radius:8px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#a85f82}
+
+/* EXTRACURRICULARS - editorial scrapbook composition */
+.extra{min-height:100svh;padding:clamp(60px,9vh,100px) clamp(30px,8vw,125px);background:var(--paper);display:flex;flex-direction:column}
+.extra-head{position:relative;margin-bottom:50px}
+.extra-sub{font-size:14px;letter-spacing:3.2px;color:#b08a97;margin:16px 0 0;font-weight:500}
+.extra-grid{display:grid;grid-template-columns:45% 1fr;gap:50px;align-items:stretch;align-content:center;flex:1}
+.timeline{border-top:1px solid #a9a59c}
+.row{padding:42px 0;border-bottom:1px solid #c6c2ba}
+.row:last-child{border-bottom:none}
+.row-top{display:flex;align-items:center;gap:18px;margin-bottom:12px}
+.row-num{display:inline-flex;flex:none;align-items:center;justify-content:center;width:56px;height:40px;border-radius:50%;background:#f3c9dc;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#7a4a5c}
+.row h3{font-size:34px;line-height:1;margin:0;font-weight:400}
+.row p{font-size:16px;line-height:1.7;margin:0;max-width:400px;padding-left:74px;color:#4a4742}
+.extra-right{position:relative;display:flex;flex-direction:column;justify-content:flex-start}
+.collage{position:relative;height:405px}
+.scrap-paper{position:absolute;left:1%;top:5%;width:357px;height:403px;background:#f3c6d6;transform:rotate(-3deg);z-index:1}
+.polaroid{position:absolute;left:6%;top:0;width:391px;background:#fff;padding:18px 18px 53px;border:1px solid #e4dfd6;box-shadow:0 16px 32px rgba(30,20,15,.12);transform:rotate(-3deg);z-index:3}
+.polaroid-tape{position:absolute;left:38%;top:-16px;width:83px;height:30px;background:rgba(233,163,190,.65);border:1px solid rgba(200,120,150,.3);transform:rotate(-4deg);z-index:4}
+.polaroid-photo{position:relative;width:100%;height:331px;overflow:hidden;background:linear-gradient(165deg,#aebfdd 0%,#dcc3d6 42%,#f0d3c0 68%,#c9d2c2 100%)}
+.polaroid-photo:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:#3a3733;clip-path:polygon(0 100%,0 40%,22% 30%,38% 45%,55% 20%,72% 42%,100% 25%,100% 100%)}
+.polaroid-note{position:absolute;left:18px;top:21px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;line-height:1.3;color:#2c2a28}
+.sticky-note{position:absolute;right:6%;top:2%;width:215px;background:#f6c9dc;padding:24px 22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;line-height:1.44;color:#3c2732;box-shadow:0 10px 20px rgba(0,0,0,.09);transform:rotate(3deg);z-index:5}
+.collage .sticky-note{width:247px;padding:28px 25px;font-size:20px}
+.note-clip{position:absolute;right:14px;bottom:-21px;width:18px;height:39px;border:2px solid #9a9690;border-radius:8px;transform:rotate(10deg);z-index:6}
+.note-clip:before{content:"";position:absolute;left:2px;top:2px;width:8px;height:23px;border:2px solid #9a9690;border-radius:4px;border-bottom:none}
+.note-more{position:absolute;right:2%;top:198px;width:182px;background:#f3ece6;padding:25px 23px 28px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;line-height:1.42;color:#3a352f;box-shadow:0 8px 16px rgba(0,0,0,.07);transform:rotate(-4deg);z-index:4}
+.contact{padding:clamp(60px,9vh,100px) clamp(30px,8vw,125px);background:var(--pink2);position:relative}.contact h2{font-size:clamp(70px,6.5vw,100px);line-height:.8;letter-spacing:-4px;max-width:750px}.contact h2 em{color:#fff}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:84px;margin-top:64px}.contact p{font-size:17px;line-height:1.7;max-width:460px}.form{display:grid;grid-template-columns:1fr 1fr;gap:26px}.form label{font-size:13px;text-transform:uppercase;letter-spacing:1px}.form input,.form textarea{width:100%;border:0;border-bottom:1px solid #777;background:transparent;padding:10px 0;font:14px Montserrat;outline:0}.form textarea{height:80px;resize:none;grid-column:1/-1}.form .button{justify-self:start;grid-column:1/-1;border-color:#a96a85}
+footer{padding:22px clamp(30px,5vw,84px);display:flex;justify-content:space-between;font-size:12px;background:#f7f4ed;border-top:1px solid #d3cec4}
+@media(max-width:800px){header{height:70px;padding:0 22px}.nav{gap:14px;font-size:12px}.nav a:nth-child(4){display:none}.hero{min-height:auto;grid-template-columns:1fr;padding:50px 28px 60px}.portrait{height:320px}.hero h1{font-size:58px}.hero p{font-size:15px}.about{min-height:auto;padding:50px 28px 55px;display:block}.about-grid{grid-template-columns:1fr;gap:34px}.about-intro{order:1}.about-portrait{order:2;min-height:0}.about-right{order:3;border-left:none;padding-left:0;border-top:1px solid #d8d3c9;padding-top:26px}.about-heading{font-size:42px}.about-note{display:none}.about-sticky{display:none}.about-polaroid{max-width:260px;margin:0 auto}.proj-page,.extra,.contact{min-height:auto;padding-left:28px;padding-right:28px}.extra-grid,.contact-grid{grid-template-columns:1fr;gap:40px}.row p,.contact p{font-size:14px}.proj-grid,.proj-grid-company{grid-template-columns:1fr;gap:24px;align-items:start}.proj-title{font-size:56px}.proj-orbit,.proj-connector{display:none}.proj-desc{font-size:14px}.proj-company .proj-desc{max-width:none}.proj-visual{min-height:0;margin-top:20px}.note-click{display:none}.projects-hero{padding:50px 24px 44px}.pj-grid{grid-template-columns:1fr;gap:34px}.pj-eyebrow{margin-bottom:28px}.pj-note-top,.pj-note-arrow{display:none}.pj-note-bottom{position:static;display:block;margin-top:22px}.pj-cards{grid-template-columns:1fr}.pj-card-cols{grid-template-columns:1fr;gap:16px}.pj-card-cols>div+div{border-left:none;padding-left:0;padding-top:16px;border-top:1px solid rgba(122,74,92,.16)}.laptop{width:100%;margin-top:16px;transform:none}.laptop-lid{padding:10px 10px 0}.dash-sidebar{width:92px;padding:12px 8px}.proj-info-row{grid-template-columns:1fr;gap:26px;margin-top:34px;padding-top:26px}.info-col{padding:0}.info-col:not(:first-child){border-left:none;border-top:1px solid #d8d3c6;padding-top:22px}.collage{height:auto;display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:28px}.scrap-paper,.polaroid-tape,.note-clip{display:none}.polaroid,.sticky-note,.note-more{position:static;width:100%;max-width:300px;transform:none}.row-top{gap:14px}.row-num{width:42px;height:30px;font-size:14px}.row h3{font-size:28px}.row p{padding-left:0}.achieve{min-height:auto}.achieve-grid{grid-template-columns:1fr;gap:40px}.achieve-visual{min-height:auto;height:auto;display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:10px}.ach-phone-a,.ach-phone-b,.ach-card{position:static;width:100%;max-width:280px;transform:none;box-shadow:0 16px 30px rgba(20,15,10,.18)}.ach-phone-a{height:auto;aspect-ratio:250/508}.ach-phone-b{height:auto;aspect-ratio:214/436}.achieve-item{gap:14px}.learning{padding:50px 24px 44px}.learning-item{gap:14px;padding:22px 0}.learning-num{width:36px;height:36px;font-size:13px}.contact h2{font-size:64px}.contact-linkedin{margin-left:0;margin-top:12px;display:inline-flex}.form label,.form input,.form textarea{font-size:13px}footer{padding:18px 22px;font-size:11px}}
+</style>
+</head>
+<body>
+<main class="page">
+<header><div class="logo">Khushboo <em>Gupta</em></div><nav class="nav"><a href="#home">Home</a><a href="#work">About</a><a href="#projects">Projects</a><a href="#extra">Education</a><a href="#contact">Contact</a></nav></header>
+<section class="hero" id="home"><div class="portrait"><img src="assets/image.png" alt="Khushboo"><div class="portrait-label">Portfolio</div></div><div class="hero-copy"><span class="sticker">hey there!</span><h1>Let's Turn <em>Research</em><br>Into Clarity,<br>Together.</h1><p>I'm Khushboo, an MBA Marketing student with experience in market research, data analysis, and client engagement. I'm looking for internship opportunities in business research, customer analysis, and operational work, bringing analytical thinking and structured problem-solving to every project.</p><a class="button" href="#work">Explore more →</a></div></section>
+<div class="ticker"><span>• &nbsp; Market Research &nbsp; • &nbsp; Strategy &nbsp; • &nbsp; Communication &nbsp; • &nbsp; Analysis &nbsp; • &nbsp; Client Engagement &nbsp; •&nbsp; </span><span aria-hidden="true">• &nbsp; Market Research &nbsp; • &nbsp; Strategy &nbsp; • &nbsp; Communication &nbsp; • &nbsp; Analysis &nbsp; • &nbsp; Client Engagement &nbsp; •&nbsp; </span><span aria-hidden="true">• &nbsp; Market Research &nbsp; • &nbsp; Strategy &nbsp; • &nbsp; Communication &nbsp; • &nbsp; Analysis &nbsp; • &nbsp; Client Engagement &nbsp; •&nbsp; </span><span aria-hidden="true">• &nbsp; Market Research &nbsp; • &nbsp; Strategy &nbsp; • &nbsp; Communication &nbsp; • &nbsp; Analysis &nbsp; • &nbsp; Client Engagement &nbsp; •&nbsp; </span></div>
+
+<section class="about" id="work">
+  <div class="about-grid">
+    <div class="about-intro">
+      <p class="about-eyebrow">ABOUT ME</p>
+      <h2 class="about-heading">More<br>than just<br>a <em>portfolio</em>.</h2>
+      <p class="about-lead">I'm someone who loves understanding people, spotting problems, and finding simple, thoughtful solutions. Whether it's through research, content, or strategy, I enjoy turning ideas into impact, and I'm always eager to learn, create, and grow along the way.</p>
+      <a class="button about-btn" href="#contact">Get in touch →</a>
+      <div class="about-note">curious<br>always learning<br>always growing <span class="pj-heart">♡</span></div>
+    </div>
+    <div class="about-portrait">
+      <div class="about-paper" aria-hidden="true"></div>
+      <div class="about-polaroid">
+        <div class="about-tape" aria-hidden="true"></div>
+        <div class="about-photo"><img src="assets/image.png" alt="Khushboo"></div>
+        <div class="about-caption">A little more me... ♡</div>
+      </div>
+      <div class="about-sticky">stay<br>curious ♡</div>
+    </div>
+    <div class="about-right">
+      <div class="about-exp">
+        <h3>Experience</h3>
+        <p>Sales and Marketing Intern at Flawsome Media (Nov–Dec 2022): conducted market research to identify potential clients and emerging business opportunities, and analyzed customer engagement patterns to understand response behavior and follow-up effectiveness.</p>
+        <p>Assisted the team in outreach, coordination, and execution of marketing and client engagement activities, gaining early hands-on exposure to how research turns into real client relationships.</p>
+        <a class="about-link" href="https://drive.google.com/file/d/1_YXZv392iV8jDj-3xtAjU-Z-Xk5RDFMU/view?usp=drivesdk" target="_blank" rel="noopener">View experience letter ↗</a>
+      </div>
+      <div class="about-divider"></div>
+      <div class="about-skills">
+        <h3>Skills &amp; Tools</h3>
+        <div class="skill-pills">
+          <span>Market Research</span><span>User Research</span><span>Data Analysis</span><span>Strategy</span><span>Content Strategy</span><span>Communication</span><span>Canva</span><span>Notion</span><span>Google Workspace</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects-hero" id="projects">
+  <div class="pj-grid">
+    <div class="pj-intro">
+      <p class="pj-eyebrow">PROJECTS</p>
+      <h2 class="pj-heading">Ideas to<span class="pj-heading-mark" aria-hidden="true"></span><br><em>Impact.</em></h2>
+      <p class="pj-lead">A collection of projects where I explored real problems, learned by doing, and turned insights into meaningful solutions.</p>
+      <a class="button pj-btn" href="#projects">View all projects →</a>
+    </div>
+    <div class="pj-cards">
+      <!-- <span class="pj-note pj-note-top" aria-hidden="true">design<br>research<br>product<br>and more <span class="pj-heart">♡</span></span> -->
+      <article class="pj-card">
+        <div class="pj-card-head"><span class="pj-num">01</span><a class="pj-arrow-btn" href="https://www.notion.so/Nykaa-First-Time-User-Experience-Case-Study-1-2e41250b5d4180868dc2d57f361f1bf2?source=copy_link" target="_blank" rel="noopener" aria-label="View case study">→</a></div>
+        <h3>Nykaa First Time<br>User Experience</h3>
+        <p class="pj-card-desc">Analyzed first-time user behavior on the Nykaa app using app exploration, user reviews, and qualitative insights to identify key onboarding and discovery challenges.</p>
+        <div class="pj-card-cols">
+          <div><h4>Key Insights</h4>
+          <ul><li>Product overload</li><li>Low trust in reviews</li><li>Lack of beginner guidance</li></ul></div>
+          <div><h4>Proposed Improvements</h4>
+          <ul><li>Personalized onboarding</li><li>Simpler product discovery</li><li>Curated recommendations for new users</li></ul></div>
+        </div>
+      </article>
+      <article class="pj-card">
+        <div class="pj-card-head"><span class="pj-num">02</span><a class="pj-arrow-btn" href="https://www.notion.so/PRODUCT-TEARDOWN-PRD-NYKAA-REVIEWS-FEATURE-2e41250b5d4180cdae20d47380f401f2?source=copy_link" target="_blank" rel="noopener" aria-label="View case study">→</a></div>
+        <h3>Nykaa Reviews<br>Experience Improvement</h3>
+        <p class="pj-card-desc">Mapped the end-to-end product review journey to identify decision friction caused by unstructured and conflicting user feedback.</p>
+        <div class="pj-card-cols">
+          <div><h4>Key Insights</h4>
+          <ul><li>Unstructured and inconsistent reviews</li><li>Lack of verified purchase signals</li><li>Difficulty in finding relevant reviews</li></ul></div>
+          <div><h4>Proposed Improvements</h4>
+          <ul><li>Verified purchase badges</li><li>Skin-type filters</li><li>Helpful vote signals</li><li>Expert indicators</li></ul></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="proj-page proj-company">
+  <div class="proj-eyebrow">PROJECT 03</div>
+  <div class="proj-grid proj-grid-company">
+    <div class="proj-intro">
+      <h2 class="proj-title">Piaggio <em>Vehicles</em></h2>
+      <p class="proj-cat">PROJECT TRAINEE · NETWORK EXPANSION</p>
+      <p class="proj-desc">Supported dealer network expansion through prospect evaluation, lead qualification, and stakeholder coordination, contributing to dealership planning and execution across layouts, renderings, and customer experience.</p>
+      <p class="proj-desc">Worked on network standardization and dealership readiness, covering CI, SQS, infrastructure, and vendor coordination, to help new dealerships launch consistently and on schedule.</p>
+      <a class="button" href="https://www.linkedin.com/in/khushboo-gupta-433629229/" target="_blank" rel="noopener">View experience →</a>
+    </div>
+    <div class="proj-visual proj-visual-company">
+      <span class="note-click" aria-hidden="true">click to visit<i class="note-click-arrow"></i></span>
+      <a class="laptop" href="https://www.linkedin.com/in/khushboo-gupta-433629229/" target="_blank" rel="noopener" aria-label="View more about this experience on LinkedIn">
+        <div class="laptop-lid">
+          <span class="laptop-webcam"></span>
+          <div class="laptop-screen">
+            <div class="dash-sidebar">
+              <div class="dash-brand">Piaggio</div>
+              <div class="dash-nav"><span class="active"></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="dash-cta"></div>
+            </div>
+            <div class="dash-main">
+              <div class="dash-topbar"><span class="dash-title"></span><span class="dash-search"></span><span class="dash-bell"></span><span class="dash-avatar"></span></div>
+              <div class="dash-stats"><span></span><span></span><span></span><span></span></div>
+              <div class="dash-panels">
+                <div class="dash-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="dash-donut"></div>
+              </div>
+              <div class="dash-rows"><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-deck"><div class="laptop-keyboard"></div><div class="laptop-trackpad"></div></div>
+      </a>
+      <div class="sticky-note note-company-side">Ideas<br>Systems<br>People<br>Progress</div>
+    </div>
+  </div>
+  <div class="proj-info-row">
+    <div class="info-col meta"><span class="info-icon role" aria-hidden="true"></span><h5>My Role</h5><p>Project Trainee, Network Expansion</p></div>
+    <div class="info-col meta"><span class="info-icon timeline" aria-hidden="true"></span><h5>Timeline</h5><p>July 2026</p></div>
+    <div class="info-col detail"><span class="info-icon problem" aria-hidden="true"></span><h4>Network Expansion</h4><p>Supported dealer network expansion through prospect evaluation, lead qualification, and stakeholder coordination.</p></div>
+    <div class="info-col detail"><span class="info-icon approach" aria-hidden="true"></span><h4>Dealership Execution</h4><p>Contributed to dealership planning and execution, including layouts, renderings, and customer experience.</p></div>
+    <div class="info-col detail"><span class="info-icon outcome" aria-hidden="true"><i></i><i></i><i></i></span><h4>Standardization</h4><p>Supported network standardization and dealership readiness through CI, SQS, infrastructure, and vendor coordination.</p></div>
+  </div>
+</section>
+<section class="achieve" id="achievements">
+  <div class="achieve-grid">
+    <div class="achieve-visual">
+      <a class="ach-card ach-card-1" href="https://www.instagram.com/mero_brijdham?igsh=YzQzajM1b3ZuMDZu&utm_source=qr" target="_blank" rel="noopener"><h4>12.5K+ followers</h4><p>Built a personal<br>digital brand ♡</p></a>
+      <a class="ach-card ach-card-2" href="https://drive.google.com/file/d/1nGSF4PebcYen1rzz8xVwG4FsysBVAa3o/view?usp=drivesdk" target="_blank" rel="noopener"><h4>Certified</h4><p>by HubSpot Academy<br><br>Digital Marketing<br>Certification ♡</p></a>
+      <a class="ach-card ach-card-3" href="#work"><h4>Marketing Experience</h4><p>Internships that<br>shaped my learning ♡</p></a>
+      <a class="ach-phone-b" href="https://drive.google.com/file/d/1nGSF4PebcYen1rzz8xVwG4FsysBVAa3o/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="View HubSpot Academy certificate">
+        <div class="ach-notch"></div>
+        <div class="ach-screen">
+          <div class="ach-clock">9:41</div>
+          <div class="hs-badge"></div>
+          <div class="hs-brand">HubSpot <b>Academy</b></div>
+          <div class="hs-title">Digital Marketing<br>Certification</div>
+          <div class="hs-name">Khushboo Gupta</div>
+          <div class="hs-lines"><span></span><span></span></div>
+          <div class="hs-sign">HubSpot Academy</div>
+          <div class="hs-sign-caption">Certification Team</div>
+        </div>
+      </a>
+      <a class="ach-phone-a" href="https://www.instagram.com/mero_brijdham?igsh=YzQzajM1b3ZuMDZu&utm_source=qr" target="_blank" rel="noopener" aria-label="View Instagram profile">
+        <div class="ach-notch"></div>
+        <div class="ach-screen">
+          <div class="ach-clock">9:41</div>
+          <div class="ig-handle">mero_brijdham <i>⌄</i><span class="ig-heart">♥</span></div>
+          <div class="ig-profile-row">
+            <div class="ig-avatar"></div>
+            <div class="ig-stat"><b>245</b><small>Posts</small></div>
+            <div class="ig-stat"><b>12.5K</b><small>Followers</small></div>
+            <div class="ig-stat"><b>612</b><small>Following</small></div>
+          </div>
+          <div class="ig-bio"><b>Khushboo Gupta</b>personal brand · content &amp; storytelling</div>
+          <div class="ig-highlights">
+            <div class="ig-hl"><span></span><small>life</small></div>
+            <div class="ig-hl"><span></span><small>notes</small></div>
+            <div class="ig-hl"><span></span><small>tech</small></div>
+            <div class="ig-hl"><span></span><small>travel</small></div>
+          </div>
+          <div class="ig-tabs"><span class="active"></span><span></span></div>
+          <div class="ig-grid"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="ig-nav"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </a>
+    </div>
+    <div class="achieve-content">
+      <p class="achieve-eyebrow">Achievements &amp; Certifications</p>
+      <h2>Small Wins,<br>Big Growth</h2>
+      <div class="achieve-list">
+        <div class="achieve-item">
+          <span class="achieve-icon icon-brand" aria-hidden="true"></span>
+          <div>
+            <h3>Built a personal digital brand</h3>
+            <p>Built and scaled a personal digital brand to 12.5K+ followers through clear positioning and visual storytelling.</p>
+            <a class="about-link" href="https://www.instagram.com/mero_brijdham?igsh=YzQzajM1b3ZuMDZu&utm_source=qr" target="_blank" rel="noopener">View profile ↗</a>
+          </div>
+        </div>
+        <div class="achieve-item">
+          <span class="achieve-icon icon-growth" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div>
+            <h3>Content and Growth Intern</h3>
+            <p>Worked as a Content and Growth Intern and supported lead growth initiatives by analyzing performance metrics like reach and interactions to identify effective content formats.</p>
+            <a class="about-link" href="https://www.instagram.com/thepahaditribe/" target="_blank" rel="noopener">View work ↗</a>
+          </div>
+        </div>
+        <div class="achieve-item">
+          <span class="achieve-icon icon-cert" aria-hidden="true"></span>
+          <div>
+            <h3>HubSpot Academy Certification</h3>
+            <p>Gained a certification of Digital Marketing from HubSpot Academy, with hands-on understanding of inbound marketing, SEO, content strategy, social media, advertising, and performance analytics.</p>
+            <a class="about-link" href="https://drive.google.com/file/d/1nGSF4PebcYen1rzz8xVwG4FsysBVAa3o/view?usp=drivesdk" target="_blank" rel="noopener">View certificate ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="learning" id="learning">
+  <div class="learning-head"><p class="learning-eyebrow">BEYOND THE CURRICULUM</p><h2>Learning &amp; Growth</h2></div>
+  <div class="learning-list">
+    <div class="learning-item">
+      <span class="learning-num">01</span>
+      <div>
+        <div class="learning-item-head"><h3>Academic Immersion at IIM Amritsar</h3><span class="learning-date">Cohort Program</span></div>
+        <p>Spent five days at the Indian Institute of Management Amritsar as part of an MBA cohort immersion, engaging with new ideas, industry conversations, and peers and mentors from across institutions.</p>
+      </div>
+    </div>
+    <div class="learning-item">
+      <span class="learning-num">02</span>
+      <div>
+        <div class="learning-item-head"><h3>Human Resource Management Presentation</h3><span class="learning-date">Business Ethics &amp; Values, Chitkara University</span></div>
+        <p>Presented on Human Resource Management for the Business Ethics and Values module, guided by Dr. Babita Singla, in a session led by Chancellor Dr. Ashok K. Chitkara. Explored COCO, FOFO, and FOCO business models and how HR practices and leadership styles align with ethical, sustainable organizations.</p>
+      </div>
+    </div>
+    <div class="learning-item">
+      <span class="learning-num">03</span>
+      <div>
+        <div class="learning-item-head"><h3>"Chase the Lay's" Ad Campaign</h3><span class="learning-date">Advertisement Management, Chitkara University</span></div>
+        <p>Led creative direction on a group campaign for Lay's, built around the AIDA and DAGMAR models to turn attention into desire and move audiences from awareness to action, exploring how strong frameworks shape a simple idea into a full campaign.</p>
+        <div class="learning-video-placeholder">Campaign video coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="extra" id="extra">
+  <div class="extra-head"><h2>Education</h2><p class="extra-sub">ACADEMIC BACKGROUND</p></div>
+  <div class="extra-grid">
+    <div class="timeline">
+      <div class="row"><div class="row-top"><span class="row-num">01</span><h3>Chitkara University</h3></div><p>MBA in Marketing (pursuing), 2025 to 2027.</p></div>
+      <div class="row"><div class="row-top"><span class="row-num">02</span><h3>MCM DAV College for Women</h3></div><p>B.Com, Chandigarh, 2021 to 2024.</p></div>
+      <div class="row"><div class="row-top"><span class="row-num">03</span><h3>SD Public School, Narwana</h3></div><p>CBSE, Class XII, 2020 to 2021.</p></div>
+    </div>
+    <div class="extra-right">
+      <div class="collage">
+        <div class="scrap-paper" aria-hidden="true"></div>
+        <div class="polaroid"><div class="polaroid-tape" aria-hidden="true"></div><div class="polaroid-photo"><span class="polaroid-note">Good<br>Ideas<br>Happen<br>Here ♡</span></div></div>
+        <div class="sticky-note">More<br>Curiosity<br>More<br>Experiences<br>A Kinder Me<span class="note-clip" aria-hidden="true"></span></div>
+        <div class="note-more">A little<br>more… ♡</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact"><h2>Nice To <em>Meet</em> You,<br>Let's Talk.</h2><div class="contact-grid"><div><p>If you're looking for someone curious, research-driven, and ready to contribute, I'd love to connect about internship opportunities, or just to say hello.</p><a class="button" href="mailto:khushboo27g@gmail.com">Say hello →</a><a class="button contact-linkedin" href="https://www.linkedin.com/in/khushboo-gupta-433629229/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a></div><form class="form" onsubmit="event.preventDefault();var n=this.elements['name'].value,em=this.elements['email'].value,m=this.elements['message'].value;window.location.href='mailto:khushboo27g@gmail.com?subject='+encodeURIComponent('Portfolio contact from '+n)+'&body='+encodeURIComponent('From: '+n+' ('+em+')\n\n'+m);"><label>Name<input name="name" required placeholder="Your name"></label><label>Email<input name="email" type="email" required placeholder="you@example.com"></label><label style="grid-column:1/-1">Message<textarea name="message" required placeholder="Tell me a little about it..."></textarea></label><button class="button" type="submit">Send message →</button></form></div></section>
+<footer><span>© 2026 Khushboo Gupta</span><span>Designed by Priyanshi Gupta, Khushboo's best friend</span></footer>
+</main>
+</body>
+</html>
