@@ -27,7 +27,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;margin:0}.hero h
 .ticker{height:34px;background:var(--pink);border-top:1px solid #cf7fa7;border-bottom:1px solid #cf7fa7;display:flex;align-items:center;overflow:hidden;white-space:nowrap}.ticker span{flex:none;font-size:13px;letter-spacing:.4px;animation:scroll 44s linear infinite}.ticker i{font-style:normal;margin:0 10px}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 
 /* ABOUT ME - three-column editorial composition */
-.about{min-height:min(100svh,720px);padding:clamp(40px,6vh,68px) clamp(28px,7.5vw,120px);background:var(--paper);display:flex;align-items:center;overflow:hidden}
+.about{min-height:min(100svh,560px);padding:clamp(40px,6vh,68px) clamp(28px,7.5vw,120px);background:var(--paper);display:flex;align-items:center;overflow:hidden}
 .about-grid{width:100%;display:grid;grid-template-columns:27% 28% 1fr;gap:clamp(24px,3vw,44px);align-items:center}
 .about-intro{position:relative;display:flex;flex-direction:column}
 .about-eyebrow{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:4px;font-weight:600;color:#5c2f47;margin:0 0 16px}
@@ -64,12 +64,13 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;margin:0}.hero h
 .proj-company .proj-title{font-size:clamp(70px,6.6vw,98px);line-height:.95;margin-bottom:24px}
 .proj-company .proj-cat{font-size:13.5px;margin:0 0 20px}
 .proj-company .button{margin-bottom:22px}
-.proj-piaggio{min-height:auto;padding-top:56px;padding-bottom:56px}
-.proj-piaggio .proj-grid{grid-template-columns:1fr;align-items:start;flex:none;gap:0}
-.proj-piaggio .proj-visual-company{margin:0 0 50px}
-.proj-lays{min-height:auto;padding-top:56px;padding-bottom:56px}
-.proj-lays .proj-grid{grid-template-columns:1fr;align-items:start;flex:none;gap:0}
-.proj-lays .proj-visual-company{margin:0 0 50px}
+.proj-piaggio,.proj-lays{min-height:auto;padding-top:56px;padding-bottom:56px}
+.proj-piaggio .proj-grid,.proj-lays .proj-grid{grid-template-columns:38% 1fr;column-gap:32px;row-gap:0;align-items:center;flex:none}
+.proj-piaggio .proj-intro,.proj-lays .proj-intro{display:contents}
+.proj-piaggio .proj-intro>*,.proj-lays .proj-intro>*{grid-column:1}
+.proj-piaggio .proj-intro>.button,.proj-lays .proj-intro>.button{justify-self:start}
+.proj-piaggio .proj-visual-company{grid-column:2;grid-row:1/7;margin:0;align-self:center}
+.proj-lays .proj-visual-company{grid-column:2;grid-row:1/6;margin:0;align-self:center}
 .proj-lays .proj-desc{margin:0 0 32px}
 .proj-intro{padding-top:6px;position:relative}
 .proj-title{font-size:clamp(70px,7vw,108px);line-height:.82;letter-spacing:-4px;position:relative;display:inline-block;margin:0}
@@ -301,7 +302,10 @@ header{height:auto;min-height:60px;padding:12px 20px}
 .dash-sidebar{width:80px;padding:10px 6px}
 .dash-main{padding:12px}
 .proj-info-row{grid-template-columns:1fr;gap:24px;margin-top:20px;padding-top:20px}
-.proj-piaggio .proj-visual-company,.proj-lays .proj-visual-company{margin-bottom:28px}
+.proj-piaggio .proj-grid,.proj-lays .proj-grid{grid-template-columns:1fr}
+.proj-piaggio .proj-intro,.proj-lays .proj-intro{display:block}
+.proj-piaggio .proj-intro>*,.proj-lays .proj-intro>*{grid-column:auto}
+.proj-piaggio .proj-visual-company,.proj-lays .proj-visual-company{grid-column:auto;grid-row:auto;margin:0 0 28px}
 .proj-lays .proj-desc:last-of-type{margin-bottom:0}
 .info-col{padding:0}
 .info-col:not(:first-child){border-left:none;border-top:1px solid #d8d3c6;padding-top:20px}
